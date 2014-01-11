@@ -1,0 +1,15 @@
+<li>
+<%= gist.escape("title") %>
+<%= console.log(gist.get("favorite")) %>
+<% if (gist.get("favorite").id) { %>
+  <% var btn_text = "unfavorite"; %>
+<% }else { %>
+  <% var btn_text = "favorite"; %>
+<% } %>
+  <button
+      class= <%= btn_text %>
+      data-id="<%= gist.id %>" >
+      <%= btn_text %>
+  </button>
+  <a href="#edit/<%= gist.id %>">Edit gist</a>
+</li>

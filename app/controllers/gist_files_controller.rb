@@ -1,0 +1,2 @@
+class GistFilesController < ApplicationController
+end

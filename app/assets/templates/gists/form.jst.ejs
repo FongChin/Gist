@@ -1,0 +1,21 @@
+
+<a href="/">Home</a>
+<br>
+<br>
+<form data-id="<%= gist.id %>">
+<label for="gist_title">Title</label>
+<input type="text" name="gist[title]" id="gist_title" value="<%= gist.escape('title') %>">
+
+<h3>Gist File</h3>
+<% if (!gist.get("gistFiles") === undefined) { %>
+  <% gist.get("gistFiles").each(function(gistFile) { %>
+    <%= JST["gists/gist_file_edit_form"]({gistFile: gistFile}) %>
+    <br>
+  <% }); %>
+<% } %>
+<div id="file_forms"></div>
+<button id="add_new_gist_file_form">New Gist File</button>
+<br>
+<input type="submit" value="submit">
+</form>
+

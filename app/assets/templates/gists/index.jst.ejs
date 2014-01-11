@@ -1,0 +1,5 @@
+<% gists.each(function(gist){ %>
+  <%= JST["gists/show"]({gist: gist}) %>
+<% }); %>
+<br>
+<a href="#/new">Create New Gist</a>
