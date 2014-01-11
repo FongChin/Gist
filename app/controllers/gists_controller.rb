@@ -2,7 +2,7 @@ class GistsController < ApplicationController
   before_filter :require_current_user!
 
   def index
-    @gists = current_user.gists
+    @gists = current_user.gists.includes(:gist_files)
     @current_user = current_user
     render 'index'
   end
@@ -11,7 +11,7 @@ class GistsController < ApplicationController
     params[:gist][:user_id] = current_user.id
     @gist = Gist.new(params[:gist])
     if @gist.save
-      render 'index'
+      render 'show'
     else
       render :json => {:status => 422}
     end
@@ -20,7 +20,7 @@ class GistsController < ApplicationController
   def update
     @gist = Gist.find(params[:id])
     if @gist.update_attributes(params[:gist])
-      render 'index'
+      render 'show'
     else
       render :json => {:status => 422}
     end

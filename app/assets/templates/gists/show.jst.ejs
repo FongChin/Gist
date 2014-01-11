@@ -1,6 +1,5 @@
 <li>
 <%= gist.escape("title") %>
-<%= console.log(gist.get("favorite")) %>
 <% if (gist.get("favorite").id) { %>
   <% var btn_text = "unfavorite"; %>
 <% }else { %>

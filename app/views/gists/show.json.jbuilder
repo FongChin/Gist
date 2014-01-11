@@ -1,0 +1,1 @@
+json.partial! 'gist', :gist => @gist
