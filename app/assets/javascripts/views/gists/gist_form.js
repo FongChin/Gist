@@ -18,8 +18,6 @@ NewAuthDemo.Views.GistForm = Backbone.View.extend({
     this.model.set(data['gist']);
     var options = {
       success: function(model, response){
-        console.log(model.id);
-        console.log(response);
         Backbone.history.navigate("#/", {trigger: true});
     };
     if (this.model.isNew()){

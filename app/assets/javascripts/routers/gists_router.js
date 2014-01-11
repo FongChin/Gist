@@ -16,7 +16,10 @@ NewAuthDemo.Routers.Gists = Backbone.Router.extend({
   },
 
   edit: function(id){
-    var view = new NewAuthDemo.Views.GistForm({ model: NewAuthDemo.gists.get(id) });
+    var view = new NewAuthDemo.Views.GistForm({
+      model: NewAuthDemo.gists.get(id),
+      collection: NewAuthDemo.gists
+    });
     this._swapView(view);
   },
 
