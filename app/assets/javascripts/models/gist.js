@@ -1,8 +1,10 @@
 NewAuthDemo.Models.Gist = Backbone.Model.extend({
   parse: function(response){
-    var favorite = new NewAuthDemo.Models.Favorite(response.favorite, {gist_id: response.id});
-    response.favorite = favorite;
-    this.set("favorite", favorite);
+    if (response.favorite){
+      var favorite = new NewAuthDemo.Models.Favorite(response.favorite, {gist_id: response.id});
+      response.favorite = favorite;
+      this.set("favorite", favorite);      
+    }
 
     var gistFiles = new NewAuthDemo.Collections.GistFiles(response.gistFiles,
       {gist_id: response.id}
