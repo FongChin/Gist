@@ -5,6 +5,8 @@ NewAuthDemo.Collections.GistFiles = Backbone.Collection.extend({
     return "/gists/" + this.gist_id + "/gist_files";
   },
 
+  comparator: "id", 
+
   initialize: function(models, options){
     this.gist_id = options.gist_id;
   }

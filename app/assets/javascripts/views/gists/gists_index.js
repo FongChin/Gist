@@ -21,11 +21,12 @@ NewAuthDemo.Views.GistsIndex = Backbone.View.extend({
   favorite: function(event){
     var gist_id = $(event.currentTarget).data("id");
     var gist = this.collection.get(gist_id);
+    var $btn = $(event.currentTarget);
     var favorite = new NewAuthDemo.Models.Favorite(
       {gist_id: parseInt(gist_id)},
       {gist_id: parseInt(gist_id)}
     );
-    var $btn = $(event.currentTarget);
+    
     favorite.save({}, {
       success: function(){
         gist.set("favorite", favorite);
@@ -43,7 +44,6 @@ NewAuthDemo.Views.GistsIndex = Backbone.View.extend({
     var gist_id = $(event.currentTarget).data("id");
     var gist = this.collection.get(gist_id);
     var favorite = gist.get("favorite");
-    console.log(gist.get("favorite"));
     favorite.destroy({
       url: favorite.urlRoot(),
       success: function(){
